@@ -1,0 +1,34 @@
+     ListNode*temp=head;
+        int totalNodes=0;
+        while(temp!=NULL)
+        {
+            temp=temp->next;
+            totalNodes++;
+        }
+        int totalGroups=totalNodes/K;
+        int groupSize=K;
+        stack<int>stck;
+        temp=head;
+        ListNode*ans=head;
+        while(temp!=NULL)
+        {
+            stck.push(temp->val);
+            temp=temp->next;
+            groupSize--;
+            if(groupSize==0)
+            {
+                while(stck.empty()==0)
+                {
+                    ans->val=stck.top();
+                    stck.pop();
+                    ans=ans->next;
+                }
+                totalGroups--;
+                groupSize=K;
+            }
+            if(totalGroups==0)
+            {
+                break;
+            }
+        }
+        return head;
