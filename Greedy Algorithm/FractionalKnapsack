@@ -1,0 +1,27 @@
+ 
+    //sort according to value/weight ratio
+    static bool myComp(Item a , Item b){
+        double r1 = (double)a.value / (double)a.weight;
+        double r2 = (double)b.value / (double)b.weight;
+        
+        return r1>r2;
+    }
+    
+    //Function to get the maximum total value in the knapsack.
+    double fractionalKnapsack(int W, Item arr[], int n)
+    {
+        sort(arr, arr+n, &myComp); //sort the array acc to value/weight ratio
+        
+        double res=0;               //for storing the result
+        for(int i=0;i<n;i++){
+            if(W<arr[i].weight){
+                res=res+ W*((double)arr[i].value/arr[i].weight);   //when we have to take the fractional weight
+                break;
+            }
+            else{
+                res=res+arr[i].value;                    //if W>arr[i].weight means we can take the value
+                W=W-arr[i].weight;
+            }
+        }
+        return res;
+    }
