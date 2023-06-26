@@ -1,0 +1,5 @@
+Queue is the first in first out data structure , basically what we push first comes out first
+so in queueuenwe have two pointer rare and front .
+Initially rare and the front pointer both point to zero.
+Element is always inserted at the rear position , when ever you insert an element you do rear ++, also rear modulo n
+
