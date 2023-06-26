@@ -1,0 +1,6 @@
+So, basically if we talk about the stack, it is last in first out data structure . 
+Here is the shout out to implementation of stack with array
+we will maintain a top at -1 , whenever we need to add on an element we do top++ , put that element at the top.
+if we need to do the top operation then output the element at arr[top].
+if you need to pop some element then you can directly do top--
+that was about implementing stack with array
