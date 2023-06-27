@@ -1,0 +1,16 @@
+ sort(str.begin(),str.end());
+        string a=str[0];
+        string b=str[str.size()-1];
+        string temp="";
+        for(int i=0;i<a.length();i++)
+        {
+            if(a[i]==b[i])
+            {
+                temp+=a[i];
+            }
+            else
+            {
+                break;
+            }
+        }
+        return temp;
