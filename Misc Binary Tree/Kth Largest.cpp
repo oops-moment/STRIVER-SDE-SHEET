@@ -20,3 +20,4 @@ public:
         return pq.top();
     }
 };
+tc:nlogn sort krle, nlogk abhi
