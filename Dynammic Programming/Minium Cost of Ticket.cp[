@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int recurse(int index,int dayv,vector<int>&cost,vector<int>&days,vector<vector<int>>&dp)
+    {
+        //Alright
+        if(index==days.size())
+        {
+            return 0;
+        }
+        // now we have a case 
+        if(dp[index][dayv]!=-1)
+        {
+            return dp[index][dayv];
+        }
+        if(days[index]<=dayv)
+        {
+            return dp[index][dayv]=recurse(index+1,dayv,cost,days,dp);
+        }
+        // here else we have three cases
+        int a=INT_MAX;
+        int b=INT_MAX;
+        int c=INT_MAX;
+        a=cost[0]+recurse(index+1,days[index],cost,days,dp);
+        b=cost[1]+recurse(index+1,days[index]+6,cost,days,dp);
+        c=cost[2]+recurse(index+1, days[index]+29,cost,days,dp);
+        return dp[index][dayv]=min(a,min(b,c));
+    }
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+        // what that is varrying is the index and the days max 
+        // day max can be 300+
+        int n=days.size();
+        vector<vector<int>>dp(n,vector<int>(400,-1));
+       return recurse(0,0,costs,days,dp);
+    }
+};
